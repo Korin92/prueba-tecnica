@@ -11,7 +11,7 @@ export default async function handler(
 	const apiUrl = `${API_URL}/auth/sign-in`
 	const { email, password } = req.body
 
-	if (email !== 'jean.sharp@driverevel.com' || password !== '1234') {
+	if (email !== process.env.DB_USER || password !== process.env.DB_PASS) {
 		return res.json({ email: '', password: '' })
 	}
 
